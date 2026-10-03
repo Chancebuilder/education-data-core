@@ -1,0 +1,29 @@
+{
+  "name": "education-data-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Degree Agency Education Data Core V1 — provenance-preserving PostgreSQL catalog and API.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "db:migrate": "node --experimental-strip-types scripts/db/migrate.ts",
+    "db:seed": "node --experimental-strip-types scripts/ingest/ingest.ts",
+    "db:reset": "node --experimental-strip-types scripts/db/reset.ts",
+    "db:setup": "node --experimental-strip-types scripts/db/reset.ts && node --experimental-strip-types scripts/db/migrate.ts && node --experimental-strip-types scripts/ingest/ingest.ts",
+    "validate": "node --experimental-strip-types scripts/validate/validate.ts",
+    "test": "node --experimental-strip-types --test --test-concurrency=1 tests/*.test.ts",
+    "dev": "node --experimental-strip-types src/server/index.ts",
+    "start": "node --experimental-strip-types src/server/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "hono": "^4.10.3",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@types/pg": "^8.15.5"
+  }
+}

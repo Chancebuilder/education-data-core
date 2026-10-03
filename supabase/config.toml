@@ -1,0 +1,14 @@
+# Minimal Supabase project marker for Education Data Core V1.
+# Apply SQL with `npm run db:migrate` against any PostgreSQL 15+ database.
+# This file does not start a full local Supabase stack by itself.
+
+project_id = "education-data-core"
+
+[db]
+major_version = 16
+
+[api]
+# Expose the stable api schema. Do not expose raw, internal, or learner.
+schemas = ["api"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000

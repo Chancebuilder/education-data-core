@@ -1,0 +1,4 @@
+-- V1 facts are not embedded in this file.
+-- The machine-readable extract is data/raw/v1_research_extract.json.
+-- Load it with: npm run db:seed
+-- The loader is idempotent: running it twice does not duplicate canonical rows.

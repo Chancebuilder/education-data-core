@@ -1,0 +1,41 @@
+name: Education Data Core
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://edu_migrator:edu_migrator@127.0.0.1:5432/education_data_core
+      API_DATABASE_URL: postgres://edu_api:edu_api@127.0.0.1:5432/education_data_core
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Create roles and database
+        run: |
+          PGPASSWORD=postgres psql -h 127.0.0.1 -U postgres -v ON_ERROR_STOP=1 <<'SQL'
+          CREATE ROLE edu_migrator LOGIN SUPERUSER PASSWORD 'edu_migrator';
+          CREATE ROLE edu_api LOGIN NOSUPERUSER NOBYPASSRLS PASSWORD 'edu_api';
+          CREATE DATABASE education_data_core OWNER edu_migrator;
+          SQL
+      - run: npm ci
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm test
+      - run: npm run validate

@@ -1,0 +1,571 @@
+openapi: 3.1.0
+info:
+  title: Degree Agency Education Data API
+  version: 1.0.0
+  description: |
+    V1 catalog API. A credit recommendation does not establish institutional
+    acceptance, a course equivalency, or satisfaction of a degree requirement.
+    Null and the string not_documented mean the source did not establish the value.
+    as_of is inclusive valid time. Undated facts are current-only.
+servers:
+  - url: http://127.0.0.1:43123
+    description: Local development
+tags:
+  - name: Institutions
+  - name: Programs
+  - name: Transfer
+  - name: Alternative credit
+  - name: Provenance
+paths:
+  /v1/health:
+    get:
+      summary: Service health
+      operationId: health
+      responses:
+        "200":
+          description: The API schema is reachable.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok, api_version, service]
+                properties:
+                  ok: { type: boolean }
+                  api_version: { type: string, const: v1 }
+                  service: { type: string, const: education-data-core }
+              example:
+                ok: true
+                api_version: v1
+                service: education-data-core
+  /v1/institutions:
+    get:
+      tags: [Institutions]
+      summary: Search institutions by name, alias, or abbreviation
+      operationId: searchInstitutions
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - name: status
+          in: query
+          schema: { type: string, nullable: true }
+          description: current_status cache filter. Not a historical status.
+        - name: country
+          in: query
+          schema: { type: string, nullable: true }
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+      responses:
+        "200":
+          description: Matching institutions. control is null when not established.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InstitutionSearch"
+  /v1/institutions/{id}:
+    get:
+      tags: [Institutions]
+      summary: Institution profile at a valid-time date
+      operationId: getInstitution
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/asOf"
+        - $ref: "#/components/parameters/includeProvenance"
+      responses:
+        "200":
+          description: Profile. Identifiers are an empty array when not documented.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/Invalid"
+  /v1/institutions/{id}/history:
+    get:
+      tags: [Institutions]
+      summary: Alias, status, and accreditation history
+      operationId: getInstitutionHistory
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: History without collapsing it to one as_of.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /v1/institutions/{id}/accreditation:
+    get:
+      tags: [Institutions]
+      summary: Accreditation applied at a date
+      operationId: getAccreditation
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/asOf"
+        - name: include_history
+          in: query
+          schema: { type: boolean, default: false }
+      responses:
+        "200":
+          description: |
+            applied covers match, ambiguous, or the current view.
+            Undated grants are listed in not_applied_to_as_of when as_of is set.
+            Accreditor recognition is a different fact and is not copied here.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/institutions/{id}/programs:
+    get:
+      tags: [Programs]
+      summary: Programs offered by an institution
+      operationId: getProgramsByInstitution
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - name: degree_type
+          in: query
+          schema: { type: string, nullable: true }
+        - $ref: "#/components/parameters/asOf"
+        - name: modality
+          in: query
+          schema: { type: string, nullable: true }
+      responses:
+        "200":
+          description: Undated program versions are withheld from a historical as_of.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/institutions/{id}/policies:
+    get:
+      tags: [Transfer]
+      summary: Transfer and alternative-credit policy facts
+      operationId: getTransferPolicy
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/asOf"
+        - name: program_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - $ref: "#/components/parameters/includeProvenance"
+      responses:
+        "200":
+          description: |
+            A maximum or a category illustration does not set
+            establishes_course_acceptance. Out-of-range facts are omitted;
+            use policy-history to see them.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/institutions/{id}/alternative-credit-rules:
+    get:
+      tags: [Transfer]
+      summary: Alternative-credit facts, optionally for one provider
+      operationId: getAlternativeCreditRules
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/asOf"
+        - name: provider_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+      responses:
+        "200":
+          description: relationship addresses is not acceptance.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/institutions/{id}/policy-history:
+    get:
+      tags: [Transfer]
+      summary: Policy versions across time
+      operationId: getPolicyHistory
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - name: policy_kind
+          in: query
+          schema: { type: string, nullable: true }
+      responses:
+        "200":
+          description: Includes versions that do not cover a single as_of.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/programs:
+    get:
+      tags: [Programs]
+      summary: Search programs
+      operationId: searchPrograms
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - name: institution_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - name: degree_type
+          in: query
+          schema: { type: string, nullable: true }
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+      responses:
+        "200":
+          description: Program search results.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/program-versions/{id}/requirements:
+    get:
+      tags: [Programs]
+      summary: Degree requirements known for a program version
+      operationId: getProgramRequirements
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: |
+            V1 returns requirement_status not_documented and
+            practical_max_transfer null when no requirement nodes exist.
+            That is not a claim that the program has no requirements.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /v1/courses:
+    get:
+      tags: [Programs]
+      summary: Search destination courses
+      operationId: searchCourses
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - name: institution_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+      responses:
+        "200":
+          description: V1 has no seeded destination courses.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/providers:
+    get:
+      tags: [Alternative credit]
+      summary: Search alternative-credit providers
+      operationId: searchProviders
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+      responses:
+        "200":
+          description: Provider matches.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/providers/{id}:
+    get:
+      tags: [Alternative credit]
+      summary: Provider profile
+      operationId: getProvider
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: Provider.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /v1/providers/{id}/courses:
+    get:
+      tags: [Alternative credit]
+      summary: Learning experiences from a provider
+      operationId: getProviderCourses
+      parameters:
+        - $ref: "#/components/parameters/id"
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/asOf"
+      responses:
+        "200":
+          description: Learning experiences. identifier_status not_captured means the code was absent from the extract.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/recommendations:
+    get:
+      tags: [Alternative credit]
+      summary: Credit recommendations
+      operationId: getCreditRecommendations
+      parameters:
+        - name: authority_identifier
+          in: query
+          schema: { type: string, nullable: true }
+          example: SDCM-0160
+        - name: provider_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - name: learning_experience_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - $ref: "#/components/parameters/asOf"
+      responses:
+        "200":
+          description: |
+            recommended_credits, credit_unit, level, and subject are null when
+            the source did not state them. institution_accepts is not_derived.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/equivalencies:
+    get:
+      tags: [Transfer]
+      summary: Documented course equivalencies
+      operationId: getKnownEquivalencies
+      parameters:
+        - name: destination_institution_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - name: source_experience_version_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - name: program_version_id
+          in: query
+          schema: { type: string, format: uuid, nullable: true }
+        - $ref: "#/components/parameters/asOf"
+      responses:
+        "200":
+          description: Empty data means no equivalency is loaded. It is not a rejection.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+  /v1/transfer/evaluate:
+    post:
+      tags: [Transfer]
+      summary: Separate recommendation, acceptance, equivalency, and degree applicability
+      operationId: evaluateTransfer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EvaluateRequest"
+            example:
+              destination_institution_id: 6456926d-1b81-5dd4-a63d-7eae886ecb96
+              completed_on: "2024-06-01"
+              authority_identifier: SDCM-0160
+      responses:
+        "200":
+          description: |
+            credit_recommended can be true, false, not_documented, or ambiguous.
+            institution_accepts stays not_documented unless a course- or
+            provider-strength fact establishes acceptance. degree_requirement_satisfied
+            is not_documented in V1.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+              example:
+                data:
+                  distinctions:
+                    credit_recommended: true
+                    institution_accepts: not_documented
+                    acceptance_established: false
+                    equivalency_documented: false
+                    equivalency_type: null
+                    degree_requirement_satisfied: not_documented
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "422":
+          $ref: "#/components/responses/Invalid"
+  /v1/provenance:
+    get:
+      tags: [Provenance]
+      summary: Evidence linked to one fact
+      operationId: getRecordProvenance
+      parameters:
+        - name: fact_schema
+          in: query
+          required: true
+          schema: { type: string }
+        - name: fact_table
+          in: query
+          required: true
+          schema: { type: string }
+        - name: fact_id
+          in: query
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        "200":
+          description: Source documents and excerpts for the fact.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+  /v1/sources/{id}:
+    get:
+      tags: [Provenance]
+      summary: One source document
+      operationId: getSource
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: Source metadata. source_url may be null.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /v1/research-gaps:
+    get:
+      tags: [Provenance]
+      summary: Internal research queue
+      operationId: listResearchGaps
+      description: Refused for the public application role.
+      parameters:
+        - name: status
+          in: query
+          schema: { type: string, nullable: true }
+        - name: topic
+          in: query
+          schema: { type: string, nullable: true }
+      responses:
+        "200":
+          description: Gaps, only for an editor role.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Envelope"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+    q:
+      name: q
+      in: query
+      schema: { type: string, nullable: true }
+    asOf:
+      name: as_of
+      in: query
+      description: Inclusive valid time. Omit for the current non-superseded view.
+      schema: { type: string, format: date, nullable: true }
+    includeProvenance:
+      name: include_provenance
+      in: query
+      schema: { type: boolean, default: false }
+    limit:
+      name: limit
+      in: query
+      schema: { type: integer, default: 20, maximum: 100 }
+    offset:
+      name: offset
+      in: query
+      schema: { type: integer, default: 0, minimum: 0 }
+  responses:
+    NotFound:
+      description: No row for that canonical id.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Invalid:
+      description: Missing or malformed argument.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Forbidden:
+      description: The application role cannot read this object.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code: { type: string }
+            message: { type: string }
+    Envelope:
+      type: object
+      required: [meta, data]
+      properties:
+        meta:
+          $ref: "#/components/schemas/Meta"
+        data: {}
+        page:
+          type: object
+          properties:
+            limit: { type: integer }
+            offset: { type: integer }
+            total: { type: integer }
+            next_offset: { type: integer, nullable: true }
+        not_applied_to_as_of: {}
+    Meta:
+      type: object
+      properties:
+        api_version: { type: string }
+        policy_as_of: { type: string, format: date, nullable: true }
+        as_of_interpretation:
+          type: string
+          enum: [current_non_superseded_records, valid_time_inclusive]
+        data_snapshot_at: { type: string, format: date-time }
+        credit_units_note: { type: string }
+    InstitutionSearch:
+      allOf:
+        - $ref: "#/components/schemas/Envelope"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                required: [id, official_name]
+                properties:
+                  id: { type: string, format: uuid }
+                  official_name: { type: string }
+                  institution_type: { type: string }
+                  country_code: { type: string }
+                  control: { type: string, nullable: true }
+                  current_status: { type: string }
+                  website_url: { type: string, nullable: true }
+                  match_score: { type: number }
+    EvaluateRequest:
+      type: object
+      required: [destination_institution_id, completed_on]
+      properties:
+        destination_institution_id: { type: string, format: uuid }
+        completed_on: { type: string, format: date }
+        learning_experience_version_id: { type: string, format: uuid, nullable: true }
+        authority_identifier: { type: string, nullable: true }
+        grade: { type: string, nullable: true }
+        program_version_id: { type: string, format: uuid, nullable: true }
+        policy_as_of: { type: string, format: date, nullable: true }

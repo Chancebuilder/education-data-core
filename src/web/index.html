@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Education Data Core</title>
+    <style>
+      :root {
+        --paper: #efeae2;
+        --paper-2: #f7f3ec;
+        --ink: #1e1a16;
+        --muted: #5e564c;
+        --line: #d4cbbd;
+        --pine: #1f4d45;
+        --pine-ink: #f4f7f5;
+        --chip: #e7efe9;
+        --warn: #8a4b1f;
+        --warn-bg: #f3e4d4;
+        --shadow: 0 1px 0 rgba(30, 26, 22, 0.06);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+        line-height: 1.45;
+      }
+      button, input, select {
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: inherit;
+      }
+      header {
+        padding: 28px 24px 8px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .kicker {
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: var(--pine);
+        margin: 0 0 8px;
+      }
+      h1 { font-weight: 500; font-size: 40px; line-height: 1.05; margin: 0 0 12px; }
+      .lede { max-width: 68ch; color: var(--muted); margin: 0; }
+      main { max-width: 1180px; margin: 0 auto; padding: 20px 24px 64px; }
+      .layout {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+        align-items: start;
+      }
+      .panel {
+        background: var(--paper-2);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+      h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 12px;
+      }
+      label {
+        display: block;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .row { display: flex; gap: 8px; }
+      input[type="search"], input[type="text"], input[type="date"] {
+        width: 100%;
+        background: white;
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        font-size: 16px;
+      }
+      button {
+        background: var(--pine);
+        color: var(--pine-ink);
+        border: 0;
+        padding: 10px 14px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      button.secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      button:disabled { opacity: 0.5; cursor: wait; }
+      ul.results { list-style: none; margin: 14px 0 0; padding: 0; }
+      ul.results li { border-top: 1px solid var(--line); }
+      ul.results button {
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        color: var(--ink);
+        border: 0;
+        padding: 10px 4px;
+      }
+      ul.results button.active { background: var(--chip); }
+      .meta {
+        display: block;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .stack { display: grid; gap: 16px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+      .chip {
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 12px;
+        padding: 4px 8px;
+        background: var(--chip);
+        color: var(--pine);
+      }
+      .chip.warn { background: var(--warn-bg); color: var(--warn); }
+      .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fact {
+        border-top: 1px solid var(--line);
+        padding-top: 8px;
+      }
+      .fact span {
+        display: block;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .tile {
+        border: 1px solid var(--line);
+        padding: 12px;
+        background: white;
+        min-height: 112px;
+      }
+      .tile strong { display: block; font-size: 20px; font-weight: 500; margin-top: 8px; }
+      .statement { margin: 0 0 12px; }
+      .source {
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .source a { color: var(--pine); }
+      .empty { color: var(--muted); margin: 0; }
+      .error {
+        background: var(--warn-bg);
+        color: var(--warn);
+        padding: 10px 12px;
+        margin-bottom: 12px;
+      }
+      .controls { display: grid; grid-template-columns: 1fr 160px auto; gap: 8px; align-items: end; margin-bottom: 14px; }
+      .eval-grid { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 8px; align-items: end; }
+      footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px 32px;
+        color: var(--muted);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 13px;
+      }
+      @media (max-width: 860px) {
+        h1 { font-size: 32px; }
+        .layout, .facts, .tiles, .controls, .eval-grid { grid-template-columns: 1fr; }
+        header, main, footer { padding-left: 16px; padding-right: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="kicker">Degree Agency</p>
+      <h1>Education Data Core</h1>
+      <p class="lede">
+        A source-dated catalog of institutions, accreditation, transfer policy, and credit recommendations.
+        A recommendation does not mean a college accepts the credit. Acceptance does not create an equivalency.
+        An equivalency does not satisfy a degree requirement.
+      </p>
+    </header>
+    <main>
+      <div id="error" class="error" hidden></div>
+      <div class="layout">
+        <section class="panel">
+          <h2>Institutions</h2>
+          <form id="search-form">
+            <label for="q">Name, alias, or abbreviation</label>
+            <div class="row">
+              <input id="q" type="search" placeholder="TESU, Brandman, Excelsior College" />
+              <button type="submit">Search</button>
+            </div>
+          </form>
+          <ul id="results" class="results"></ul>
+        </section>
+        <section class="stack">
+          <article class="panel" id="profile">
+            <h2>Institution</h2>
+            <p class="empty" id="profile-empty">Search for an institution. Identifiers that were not in the research extract stay empty.</p>
+            <div id="profile-body" hidden>
+              <div class="controls">
+                <div>
+                  <label for="as-of">Valid on</label>
+                  <input id="as-of" type="date" />
+                </div>
+                <div>
+                  <label for="provenance">Sources</label>
+                  <button id="provenance" class="secondary" type="button">Show sources</button>
+                </div>
+                <button id="reload" type="button">Apply date</button>
+              </div>
+              <h3 id="display-name" style="font-weight:500;font-size:28px;margin:0 0 8px;"></h3>
+              <p id="name-basis" class="source"></p>
+              <div id="identity" class="facts"></div>
+              <div id="alias-chips" class="chips"></div>
+              <h2 style="margin-top:22px;">Accreditation</h2>
+              <div id="accreditation"></div>
+              <h2 style="margin-top:22px;">Programs</h2>
+              <div id="programs"></div>
+              <h2 style="margin-top:22px;">Transfer and alternative-credit policy</h2>
+              <div id="policies"></div>
+              <div id="sources" hidden>
+                <h2 style="margin-top:22px;">Sources for this profile</h2>
+                <div id="provenance-list"></div>
+              </div>
+            </div>
+          </article>
+          <article class="panel">
+            <h2>Evaluate one learning experience</h2>
+            <p class="source">Study.com Philosophy 102: Ethics in America is the only recommendation loaded from the October 3, 2026 extract. Recommended credits, level, and subject were not published in that extract, so they stay blank.</p>
+            <form id="eval-form" class="eval-grid">
+              <div>
+                <label for="authority">Authority identifier</label>
+                <input id="authority" type="text" value="SDCM-0160" />
+              </div>
+              <div>
+                <label for="completed">Completed on</label>
+                <input id="completed" type="date" value="2024-06-01" />
+              </div>
+              <button type="submit" id="eval-button">Evaluate</button>
+            </form>
+            <div id="eval-result" style="margin-top:14px;"></div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer>
+      V1 answers come from the researched extract. “Not documented” means the source did not establish the fact. Semester and quarter credits are not converted.
+    </footer>
+    <script>
+      const errorBox = document.querySelector("#error");
+      const results = document.querySelector("#results");
+      let selectedId = null;
+      let showSources = false;
+
+      function showError(message) {
+        errorBox.hidden = !message;
+        errorBox.textContent = message || "";
+      }
+
+      async function api(path, options) {
+        const response = await fetch(path, options);
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(body.error?.message || `Request failed (${response.status})`);
+        }
+        return body;
+      }
+
+      function chip(text, warn = false) {
+        const span = document.createElement("span");
+        span.className = warn ? "chip warn" : "chip";
+        span.textContent = text;
+        return span;
+      }
+
+      function fact(label, value) {
+        const div = document.createElement("div");
+        div.className = "fact";
+        const span = document.createElement("span");
+        span.textContent = label;
+        const shown = value == null || value === "" || value === "not_documented"
+          ? "Not documented"
+          : String(value).replaceAll("_", " ");
+        div.append(span, document.createTextNode(shown));
+        return div;
+      }
+
+      function formatAnswer(value) {
+        if (value === true) return "Yes";
+        if (value === false) return "No";
+        if (value == null || value === "not_documented" || value === "not_derived") return "Not documented";
+        return String(value).replaceAll("_", " ");
+      }
+
+      function renderList(target, items, renderItem, emptyText) {
+        target.replaceChildren();
+        if (!items.length) {
+          const p = document.createElement("p");
+          p.className = "empty";
+          p.textContent = emptyText;
+          target.append(p);
+          return;
+        }
+        for (const item of items) target.append(renderItem(item));
+      }
+
+      async function search(query) {
+        showError("");
+        const body = await api(`/v1/institutions?q=${encodeURIComponent(query)}&limit=20`);
+        results.replaceChildren();
+        if (!body.data.length) {
+          const li = document.createElement("li");
+          li.textContent = "No institution matched that name.";
+          results.append(li);
+          return;
+        }
+        for (const institution of body.data) {
+          const li = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.id = institution.id;
+          if (institution.id === selectedId) button.classList.add("active");
+          button.append(document.createTextNode(institution.official_name));
+          const meta = document.createElement("span");
+          meta.className = "meta";
+          meta.textContent = `${institution.institution_type} · ${institution.current_status} · ${institution.country_code}`;
+          button.append(meta);
+          button.addEventListener("click", () => selectInstitution(institution.id));
+          li.append(button);
+          results.append(li);
+        }
+      }
+
+      async function selectInstitution(id) {
+        selectedId = id;
+        for (const button of results.querySelectorAll("button")) {
+          button.classList.toggle("active", button.dataset.id === id);
+        }
+        await loadProfile();
+      }
+
+      async function loadProfile() {
+        if (!selectedId) return;
+        showError("");
+        const asOf = document.querySelector("#as-of").value;
+        const query = new URLSearchParams();
+        if (asOf) query.set("as_of", asOf);
+        if (showSources) query.set("include_provenance", "true");
+        const suffix = query.toString() ? `?${query}` : "";
+        const [profile, programs, policies] = await Promise.all([
+          api(`/v1/institutions/${selectedId}${suffix}`),
+          api(`/v1/institutions/${selectedId}/programs${asOf ? `?as_of=${asOf}` : ""}`),
+          api(`/v1/institutions/${selectedId}/policies?include_provenance=true${asOf ? `&as_of=${asOf}` : ""}`),
+        ]);
+        document.querySelector("#profile-empty").hidden = true;
+        document.querySelector("#profile-body").hidden = false;
+        const data = profile.data;
+        document.querySelector("#display-name").textContent = data.display_name;
+        document.querySelector("#name-basis").textContent = asOf
+          ? `Name used on ${asOf}: ${data.display_name_basis.replaceAll("_", " ")}.`
+          : "Current official name. Set a date to see a former name when the extract dated it.";
+
+        const identity = document.querySelector("#identity");
+        identity.replaceChildren(
+          fact("Official name", data.official_name),
+          fact("Type", data.institution_type),
+          fact("Control", data.control),
+          fact("Status on this date", data.status_as_of?.[0]?.status),
+          fact("External identifiers", data.external_identifiers_status === "not_documented" ? "Not documented" : `${data.identifiers.length} on file`),
+          fact("Website", data.website_url),
+        );
+
+        const aliases = document.querySelector("#alias-chips");
+        aliases.replaceChildren();
+        for (const alias of data.aliases) {
+          const coverage = alias.temporal?.coverage;
+          const coverageLabel = coverage && coverage !== "current_view" ? ` · ${coverage.replaceAll("_", " ")}` : "";
+          aliases.append(chip(`${alias.alias} · ${alias.alias_type.replaceAll("_", " ")}${coverageLabel}`, coverage === "ambiguous"));
+        }
+        if (!data.aliases.length) aliases.append(chip("No aliases loaded", true));
+
+        const accreditation = document.querySelector("#accreditation");
+        const applied = data.accreditation?.applied ?? [];
+        const withheld = data.accreditation?.not_applied_to_as_of ?? [];
+        renderList(
+          accreditation,
+          applied,
+          (row) => {
+            const p = document.createElement("p");
+            p.className = "statement";
+            p.textContent = `${row.accreditor_acronym} · ${row.accreditation_status} · ${row.accreditation_scope.replaceAll("_", " ")}`;
+            return p;
+          },
+          asOf ? "No accreditation row covers this date." : "No current accreditation row is loaded.",
+        );
+        if (withheld.length) {
+          const note = document.createElement("p");
+          note.className = "source";
+          note.textContent = `${withheld.map((row) => row.accreditor_acronym).join(", ")} is on file without dates, so it is not applied to ${asOf}.`;
+          accreditation.append(note);
+        }
+
+        const programHost = document.querySelector("#programs");
+        const versions = (programs.data ?? []).flatMap((program) =>
+          (program.versions ?? []).map((version) => ({ program, version })),
+        );
+        renderList(
+          programHost,
+          versions,
+          ({ program, version }) => {
+            const wrap = document.createElement("div");
+            const p = document.createElement("p");
+            p.className = "statement";
+            p.textContent = `${version.official_program_name} · ${program.degree_type}`;
+            const source = document.createElement("p");
+            source.className = "source";
+            source.textContent = version.total_credits == null
+              ? "Total credits were not stated. Requirement tree: not documented."
+              : `${version.total_credits} ${version.credit_unit ?? "credits"}`;
+            wrap.append(p, source);
+            return wrap;
+          },
+          "No program version covers this query.",
+        );
+
+        const policyHost = document.querySelector("#policies");
+        const facts = policies.data?.applied ?? [];
+        renderList(
+          policyHost,
+          facts,
+          (item) => {
+            const wrap = document.createElement("div");
+            const p = document.createElement("p");
+            p.className = "statement";
+            p.textContent = item.statement;
+            const source = document.createElement("p");
+            source.className = "source";
+            const limit = item.limit_value == null ? "No numeric limit stored" : `${item.comparison ?? "limit"} ${item.limit_value} ${item.limit_unit ?? ""}`.trim();
+            const acceptance = item.establishes_course_acceptance ? "Establishes course acceptance" : "Does not establish acceptance of a named course";
+            source.textContent = `${item.fact_kind.replaceAll("_", " ")} · ${limit} · ${acceptance}`;
+            wrap.append(p, source);
+            const url = item.provenance?.[0]?.source_url;
+            if (url) {
+              const link = document.createElement("a");
+              link.href = url;
+              link.textContent = item.provenance[0].source_title || url;
+              link.rel = "noreferrer";
+              const line = document.createElement("p");
+              line.className = "source";
+              line.append(link);
+              wrap.append(line);
+            }
+            return wrap;
+          },
+          asOf ? "No dated policy fact covers this date. Undated facts are withheld from a historical date." : "No current policy facts are loaded.",
+        );
+        const withheldPolicies = policies.data?.not_applied_to_as_of ?? [];
+        if (withheldPolicies.length) {
+          const note = document.createElement("p");
+          note.className = "source";
+          note.textContent = `${withheldPolicies.length} undated policy fact${withheldPolicies.length === 1 ? "" : "s"} withheld from ${asOf}.`;
+          policyHost.append(note);
+        }
+
+        const provenanceList = document.querySelector("#provenance-list");
+        const sources = document.querySelector("#sources");
+        sources.hidden = !showSources;
+        provenanceList.replaceChildren();
+        for (const item of data.provenance ?? []) {
+          const p = document.createElement("p");
+          p.className = "source";
+          p.textContent = item.evidence_summary;
+          if (item.source_url) {
+            const link = document.createElement("a");
+            link.href = item.source_url;
+            link.textContent = ` ${item.source_title}`;
+            p.append(link);
+          }
+          provenanceList.append(p);
+        }
+      }
+
+      async function evaluate(event) {
+        event.preventDefault();
+        if (!selectedId) {
+          showError("Choose an institution before evaluating.");
+          return;
+        }
+        showError("");
+        const body = await api("/v1/transfer/evaluate", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            destination_institution_id: selectedId,
+            completed_on: document.querySelector("#completed").value,
+            authority_identifier: document.querySelector("#authority").value,
+          }),
+        });
+        const distinctions = body.data.distinctions;
+        const host = document.querySelector("#eval-result");
+        host.replaceChildren();
+        const tiles = document.createElement("div");
+        tiles.className = "tiles";
+        const entries = [
+          ["Credit recommended", formatAnswer(distinctions.credit_recommended)],
+          ["Institution accepts", formatAnswer(distinctions.institution_accepts)],
+          ["Equivalency documented", distinctions.equivalency_documented ? "Yes" : "No"],
+          ["Degree requirement satisfied", formatAnswer(distinctions.degree_requirement_satisfied)],
+        ];
+        for (const [label, value] of entries) {
+          const tile = document.createElement("article");
+          tile.className = "tile";
+          const span = document.createElement("span");
+          span.className = "meta";
+          span.textContent = label;
+          const strong = document.createElement("strong");
+          strong.textContent = value;
+          tile.append(span, strong);
+          tiles.append(tile);
+        }
+        host.append(tiles);
+        const rec = body.data.recommendations?.[0];
+        const note = document.createElement("p");
+        note.className = "source";
+        if (rec) {
+          note.textContent = `ACE identifier ${rec.authority_identifier}. Recommended credits: ${rec.recommended_credits ?? "not documented"}. Period ${rec.temporal.valid_from_display} through ${rec.temporal.valid_to_display}. Coverage: ${rec.coverage}.`;
+        } else {
+          note.textContent = "No recommendation row matched this identifier.";
+        }
+        host.append(note);
+      }
+
+      document.querySelector("#search-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        search(document.querySelector("#q").value).catch((error) => showError(error.message));
+      });
+      document.querySelector("#reload").addEventListener("click", () => {
+        loadProfile().catch((error) => showError(error.message));
+      });
+      document.querySelector("#provenance").addEventListener("click", () => {
+        showSources = !showSources;
+        document.querySelector("#provenance").textContent = showSources ? "Hide sources" : "Show sources";
+        loadProfile().catch((error) => showError(error.message));
+      });
+      document.querySelector("#eval-form").addEventListener("submit", (event) => {
+        evaluate(event).catch((error) => showError(error.message));
+      });
+      search("").catch((error) => showError(error.message));
+    </script>
+  </body>
+</html>

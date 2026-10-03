@@ -1,0 +1,1902 @@
+{
+  "extract_name": "degree-agency-education-data-core-v1",
+  "verification_date": "2026-10-03",
+  "notes": "Facts below are limited to what the October 3, 2026 Degree Agency deep-research verification pass established. Numeric fields are null when the extract did not state them. No course equivalencies are included.",
+  "sources": [
+    {
+      "key": "src-research-extract",
+      "source_url": null,
+      "source_title": "Degree Agency Education Data Core: Deep Research and V1 Blueprint",
+      "source_type": "third_party_discovery",
+      "publisher": "Degree Agency",
+      "authority_scope": "discovery_only",
+      "published_at": "2026-10-03",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Verification pass dated October 3, 2026. Used when a primary URL was not retained. This database has not re-fetched the underlying pages."
+    },
+    {
+      "key": "src-excelsior-transfer",
+      "source_url": "https://www.excelsior.edu/policy/transfer-credit-sources/",
+      "source_title": "Transfer and Evaluated Credit Sources",
+      "source_type": "registrar_policy",
+      "publisher": "Excelsior University",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Cited by the research for Excelsior noncollegiate credit that carries ACE or NCCRS recommendations."
+    },
+    {
+      "key": "src-excelsior-designation",
+      "source_url": "https://www.excelsior.edu/about/university-designation/",
+      "source_title": "University Designation",
+      "source_type": "institution_about_page",
+      "publisher": "Excelsior University",
+      "authority_scope": "identity_history",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Cited for the Excelsior College to Excelsior University name change on August 1, 2022."
+    },
+    {
+      "key": "src-excelsior-health-sciences",
+      "source_url": null,
+      "source_title": "Excelsior University BS Health Sciences program page",
+      "source_type": "institution_program_page",
+      "publisher": "Excelsior University",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "The research verified a program-page statement of up to 113 transfer credits. The canonical URL was not retained."
+    },
+    {
+      "key": "src-umpi-faqs",
+      "source_url": "https://www.umpi.edu/yourpace/faqs/",
+      "source_title": "YourPace FAQs",
+      "source_type": "registrar_policy",
+      "publisher": "University of Maine at Presque Isle",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-umass-cpl",
+      "source_url": "https://www.umassglobal.edu/admissions/transfer-center/credit-prior-learning",
+      "source_title": "Credit for Prior Learning",
+      "source_type": "registrar_policy",
+      "publisher": "UMass Global",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-umass-news",
+      "source_url": "https://www.umassglobal.edu/blog-news/university-massachusetts-chapman-university-announce-transfer-brandman-university",
+      "source_title": "In the News: We Are Now UMass Global",
+      "source_type": "news_release",
+      "publisher": "UMass Global",
+      "authority_scope": "identity_history",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Cited for the Brandman University transition to the University of Massachusetts affiliation in 2021."
+    },
+    {
+      "key": "src-purdue-military",
+      "source_url": "https://www.purdueglobal.edu/military/military-spouses/",
+      "source_title": "Education Benefits for Military Spouses",
+      "source_type": "institution_program_page",
+      "publisher": "Purdue University Global",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "The research cites this page for Purdue Global's published transfer observations. V1 does not treat the page title as a complete policy manual."
+    },
+    {
+      "key": "src-purdue-news",
+      "source_url": "https://www.purdue.edu/newsroom/archive/purduetoday/releases/2018/Q2/purdue-university-global-holds-first-commencement-over-9%2C000-graduates-make-up-historic-cohort.html",
+      "source_title": "Purdue University Global holds first commencement",
+      "source_type": "news_release",
+      "publisher": "Purdue University",
+      "authority_scope": "identity_history",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Cited for Purdue Global beginning to operate in 2018 after the Kaplan University acquisition."
+    },
+    {
+      "key": "src-tesu-transfer",
+      "source_url": "https://www.tesu.edu/admissions/faqs/transfer-credits.php",
+      "source_title": "Transfer Credit Policy FAQs",
+      "source_type": "registrar_policy",
+      "publisher": "Thomas Edison State University",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-tesu-accreditation",
+      "source_url": "https://www.tesu.edu/why-tesu/accreditations.php",
+      "source_title": "Accreditation and Licensure",
+      "source_type": "accreditor_directory",
+      "publisher": "Thomas Edison State University",
+      "authority_scope": "institutional_accreditation",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-capella-transfer",
+      "source_url": "https://www.capella.edu/apply/admissions/transfers/",
+      "source_title": "Transferring Credits",
+      "source_type": "registrar_policy",
+      "publisher": "Capella University",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-phoenix-transfer",
+      "source_url": "https://www.phoenix.edu/tuition-financial-aid/transfer-credits.html",
+      "source_title": "College Transfer Credits",
+      "source_type": "registrar_policy",
+      "publisher": "University of Phoenix",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-charter-oak-transfer",
+      "source_url": "https://www.charteroak.edu/prospective/admissions/transfer-students/",
+      "source_title": "Transfer to Charter Oak",
+      "source_type": "registrar_policy",
+      "publisher": "Charter Oak State College",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-snhu-transfer",
+      "source_url": "https://www.snhu.edu/admission/transferring-credits",
+      "source_title": "Transfer College Credits",
+      "source_type": "registrar_policy",
+      "publisher": "Southern New Hampshire University",
+      "authority_scope": "institutional_policy",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-ace-granting",
+      "source_url": "https://www.acenet.edu/National-Guide/Pages/Granting-Credit.aspx",
+      "source_title": "Colleges and Universities: Granting Credit With the National Guide",
+      "source_type": "ace_national_guide",
+      "publisher": "American Council on Education",
+      "authority_scope": "recommendation_body",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "ACE describes recommendations in semester hours, level, and subject area. A recommendation does not force a college to award credit."
+    },
+    {
+      "key": "src-ace-seeking",
+      "source_url": "https://www.acenet.edu/National-Guide/Pages/Seeking-Credit.aspx/",
+      "source_title": "Learners: Seeking Credit With the National Guide",
+      "source_type": "ace_national_guide",
+      "publisher": "American Council on Education",
+      "authority_scope": "recommendation_body",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "ACE tells learners that each college or university decides what credit it will grant."
+    },
+    {
+      "key": "src-ace-guide",
+      "source_url": "https://www.acenet.edu/National-Guide/Pages/default.aspx",
+      "source_title": "The ACE National Guide",
+      "source_type": "ace_national_guide",
+      "publisher": "American Council on Education",
+      "authority_scope": "recommendation_body",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Source for the Study.com Philosophy 102 recommendation period observed on October 3, 2026. A course-specific ACE URL for SDCM-0160 was not retained."
+    },
+    {
+      "key": "src-nccrs-coopersmith",
+      "source_url": "https://www.nationalccrs.org/organizations/coopersmith-career-consulting",
+      "source_title": "Coopersmith Career Consulting",
+      "source_type": "nccrs_directory",
+      "publisher": "National College Credit Recommendation Service",
+      "authority_scope": "recommendation_body",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-nccrs-publication",
+      "source_url": "https://www.nationalccrs.org/content/publication-evaluation-results",
+      "source_title": "Publication of Evaluation Results",
+      "source_type": "nccrs_directory",
+      "publisher": "National College Credit Recommendation Service",
+      "authority_scope": "recommendation_body",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "NCCRS recommends credit. It does not award credit or accredit institutions."
+    },
+    {
+      "key": "src-ed-accreditation",
+      "source_url": "https://www.ed.gov/laws-and-policy/higher-education-laws-and-policy/college-accreditation/accreditation-in-the-us",
+      "source_title": "Accreditation in the U.S.",
+      "source_type": "usde_dapip",
+      "publisher": "U.S. Department of Education",
+      "authority_scope": "accreditor_recognition",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-ed-acics",
+      "source_url": "https://www.ed.gov/laws-and-policy/higher-education-laws-and-policy/college-accreditation/acics-termination",
+      "source_title": "Termination of ACICS as an ED Recognized Accrediting Agency",
+      "source_type": "government_notice",
+      "publisher": "U.S. Department of Education",
+      "authority_scope": "accreditor_recognition",
+      "published_at": "2022-08-19",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-ed-itt",
+      "source_url": "https://fsapartners.ed.gov/fsa-print/publication/8764",
+      "source_title": "Important Information for Colleges and Counselors Regarding Supporting ITT Students",
+      "source_type": "government_notice",
+      "publisher": "U.S. Department of Education",
+      "authority_scope": "government_record",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report"
+    },
+    {
+      "key": "src-deac",
+      "source_url": "https://www.deac.org/",
+      "source_title": "Welcome to DEAC",
+      "source_type": "accreditor_directory",
+      "publisher": "Distance Education Accrediting Commission",
+      "authority_scope": "institutional_accreditation",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "DEAC describes itself as an institutional accreditor of distance-education institutions. Public notices at the time of the research included Ashworth College in a renewal process. V1 does not store that mention as an accreditation grant."
+    },
+    {
+      "key": "src-ed-regional",
+      "source_url": "https://www.ed.gov/about/news/press-release/us-department-of-education-issues-proposed-interpretive-rule-eliminate-use-of-regional-accrediting-agencies",
+      "source_title": "Proposed interpretive rule on use of regional by accrediting agencies",
+      "source_type": "government_notice",
+      "publisher": "U.S. Department of Education",
+      "authority_scope": "accreditor_recognition",
+      "retrieved_at": "2026-10-03T00:00:00Z",
+      "extraction_method": "deep_research_report",
+      "notes": "Supports keeping historical source language such as regional accreditation when a catalog used it, without copying that word onto current accreditor rows."
+    }
+  ],
+  "recommendation_bodies": [
+    {
+      "key": "body-ace",
+      "code": "ACE",
+      "official_name": "American Council on Education",
+      "awards_credit": false,
+      "binds_destination_institutions": false,
+      "notes": "ACE recommendations can identify academic level, semester-hour equivalency, and subject area, and ACE reevaluates learning experiences. ACE does not award a destination institution's credit, and each college makes its own granting decision.",
+      "evidence": [
+        {
+          "source_key": "src-ace-granting",
+          "summary": "ACE tells colleges that its academic recommendations express semester hours, level, and subject area and do not force the destination institution to award those credits.",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        },
+        {
+          "source_key": "src-ace-seeking",
+          "summary": "ACE tells learners that each college or university decides what credit it will grant.",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "body-nccrs",
+      "code": "NCCRS",
+      "official_name": "National College Credit Recommendation Service",
+      "awards_credit": false,
+      "binds_destination_institutions": false,
+      "notes": "NCCRS issues credit recommendations for defined versions and date periods and may revalidate them. It recommends credit rather than awarding credit or accrediting institutions.",
+      "evidence": [
+        {
+          "source_key": "src-nccrs-publication",
+          "summary": "NCCRS describes itself as recommending credit rather than awarding credit or accrediting institutions.",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "accreditors": [
+    {
+      "key": "accr-msche",
+      "official_name": "Middle States Commission on Higher Education",
+      "acronym": "MSCHE",
+      "normalized_name": "middle states commission on higher education",
+      "accreditor_scope": "institutional",
+      "website_url": null,
+      "notes": "Named by the research as TESU's institutional accreditor. A directory URL was not retained."
+    },
+    {
+      "key": "accr-hlc",
+      "official_name": "Higher Learning Commission",
+      "acronym": "HLC",
+      "normalized_name": "higher learning commission",
+      "accreditor_scope": "institutional",
+      "website_url": null,
+      "notes": "Named by the research as the institutional accreditor of Capella, University of Phoenix, and Purdue Global."
+    },
+    {
+      "key": "accr-neche",
+      "official_name": "New England Commission of Higher Education",
+      "acronym": "NECHE",
+      "normalized_name": "new england commission of higher education",
+      "accreditor_scope": "institutional",
+      "website_url": null,
+      "notes": "Named by the research for Charter Oak, SNHU, and the University of Maine System structure in which UMPI participates."
+    },
+    {
+      "key": "accr-wscuc",
+      "official_name": "WASC Senior College and University Commission",
+      "acronym": "WSCUC",
+      "normalized_name": "wasc senior college and university commission",
+      "accreditor_scope": "institutional",
+      "website_url": null,
+      "notes": "Named by the research as UMass Global's institutional accreditor."
+    },
+    {
+      "key": "accr-acics",
+      "official_name": "Accrediting Council for Independent Colleges and Schools",
+      "acronym": "ACICS",
+      "normalized_name": "accrediting council for independent colleges and schools",
+      "accreditor_scope": "institutional",
+      "website_url": null,
+      "notes": "U.S. Department of Education recognition was terminated on August 19, 2022. Earlier withdrawal, litigation, and reinstatement intervals are not decomposed in V1. V1 does not assert that any seeded institution was accredited by ACICS."
+    },
+    {
+      "key": "accr-deac",
+      "official_name": "Distance Education Accrediting Commission",
+      "acronym": "DEAC",
+      "normalized_name": "distance education accrediting commission",
+      "accreditor_scope": "institutional",
+      "website_url": "https://www.deac.org/",
+      "notes": "DEAC describes itself as an institutional accreditor of distance-education institutions. V1 does not assert a Department of Education recognition interval for DEAC.",
+      "evidence": [
+        {
+          "source_key": "src-deac",
+          "summary": "DEAC describes itself as an institutional accreditor of distance-education institutions and maintains a directory. Current public notices at the time of the research included Ashworth College in a renewal process.",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "accreditor_recognition": [
+    {
+      "key": "recog-msche-current",
+      "accreditor_key": "accr-msche",
+      "recognition_authority": "U.S. Department of Education",
+      "status": "recognized",
+      "valid_from": null,
+      "valid_to": null,
+      "from_precision": "unknown",
+      "to_precision": "unknown",
+      "source_key": "src-ed-accreditation",
+      "verification_status": "source_confirmed",
+      "confidence": "medium",
+      "notes": "The research describes MSCHE as a recognized institutional accreditor. The recognition start date was not captured, so this row is a current undated assertion and must not be applied to a historical as-of date."
+    },
+    {
+      "key": "recog-hlc-current",
+      "accreditor_key": "accr-hlc",
+      "recognition_authority": "U.S. Department of Education",
+      "status": "recognized",
+      "valid_from": null,
+      "valid_to": null,
+      "from_precision": "unknown",
+      "to_precision": "unknown",
+      "source_key": "src-ed-accreditation",
+      "verification_status": "source_confirmed",
+      "confidence": "medium",
+      "notes": "The research describes HLC as a recognized institutional accreditor. The recognition start date was not captured."
+    },
+    {
+      "key": "recog-neche-current",
+      "accreditor_key": "accr-neche",
+      "recognition_authority": "U.S. Department of Education",
+      "status": "recognized",
+      "valid_from": null,
+      "valid_to": null,
+      "from_precision": "unknown",
+      "to_precision": "unknown",
+      "source_key": "src-ed-accreditation",
+      "verification_status": "source_confirmed",
+      "confidence": "medium",
+      "notes": "The research describes NECHE as a recognized institutional accreditor. The recognition start date was not captured."
+    },
+    {
+      "key": "recog-wscuc-current",
+      "accreditor_key": "accr-wscuc",
+      "recognition_authority": "U.S. Department of Education",
+      "status": "recognized",
+      "valid_from": null,
+      "valid_to": null,
+      "from_precision": "unknown",
+      "to_precision": "unknown",
+      "source_key": "src-research-extract",
+      "verification_status": "source_confirmed",
+      "confidence": "medium",
+      "notes": "The research names WSCUC as UMass Global's institutional accreditor in the set of recognized institutional accreditors. The recognition start date was not captured."
+    },
+    {
+      "key": "recog-acics-terminated",
+      "accreditor_key": "accr-acics",
+      "recognition_authority": "U.S. Department of Education",
+      "status": "terminated",
+      "valid_from": "2022-08-19",
+      "valid_to": null,
+      "from_precision": "day",
+      "to_precision": "unknown",
+      "source_key": "src-ed-acics",
+      "verification_status": "source_confirmed",
+      "confidence": "high",
+      "notes": "The Department of Education terminated ACICS recognition on August 19, 2022. Earlier withdrawal, litigation, and reinstatement events are acknowledged by the research and are not given dated rows in V1."
+    }
+  ],
+  "providers": [
+    {
+      "key": "prov-sophia",
+      "official_name": "Sophia Learning",
+      "normalized_name": "sophia learning",
+      "provider_type": "alternative_credit_provider",
+      "website_url": null,
+      "source_key": "src-ace-guide",
+      "verification_status": "source_confirmed",
+      "confidence": "high",
+      "notes": "ACE publishes Sophia course recommendations with ACE IDs, versions, and recommendation periods. V1 does not ingest individual Sophia courses and does not treat an ACE listing as destination acceptance."
+    },
+    {
+      "key": "prov-study",
+      "official_name": "Study.com",
+      "normalized_name": "study com",
+      "provider_type": "alternative_credit_provider",
+      "website_url": null,
+      "source_key": "src-ace-guide",
+      "verification_status": "source_confirmed",
+      "confidence": "high",
+      "notes": "ACE publishes Study.com recommendations as separate periods. Some Study.com recommendation periods begin after October 3, 2026. Those future rows were not enumerated in the extract."
+    },
+    {
+      "key": "prov-straighterline",
+      "official_name": "StraighterLine",
+      "normalized_name": "straighterline",
+      "provider_type": "alternative_credit_provider",
+      "website_url": null,
+      "source_key": "src-ace-guide",
+      "verification_status": "source_confirmed",
+      "confidence": "high",
+      "notes": "ACE lists StraighterLine courses with ACE IDs, levels, recommended credits, and subjects. V1 does not ingest those course rows and does not infer destination acceptance."
+    },
+    {
+      "key": "prov-coopersmith",
+      "official_name": "Coopersmith Career Consulting",
+      "normalized_name": "coopersmith career consulting",
+      "provider_type": "alternative_credit_provider",
+      "website_url": null,
+      "source_key": "src-nccrs-coopersmith",
+      "verification_status": "source_confirmed",
+      "confidence": "high",
+      "notes": "NCCRS publishes Coopersmith recommendations with course versions, date ranges, levels, and revalidation notes. Only the identity of Recruitment and Selection was retained in V1."
+    }
+  ],
+  "institutions": [
+    {
+      "key": "inst-excelsior",
+      "official_name": "Excelsior University",
+      "normalized_name": "excelsior university",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.excelsior.edu",
+      "notes": "Current accreditor was not named in the V1 extract. Earlier Regents-related names were mentioned but not enumerated.",
+      "evidence": [
+        {
+          "source_key": "src-excelsior-designation",
+          "summary": "Excelsior College became Excelsior University on August 1, 2022. The research says accreditation history predates that name change and does not name the current accreditor.",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        {
+          "key": "alias-excelsior-university",
+          "alias": "Excelsior University",
+          "normalized_alias": "excelsior university",
+          "alias_type": "official_name",
+          "valid_from": "2022-08-01",
+          "valid_to": null,
+          "from_precision": "day",
+          "to_precision": "unknown",
+          "source_key": "src-excelsior-designation",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-excelsior-designation",
+              "summary": "The university designation took effect on August 1, 2022.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "key": "alias-excelsior-college",
+          "alias": "Excelsior College",
+          "normalized_alias": "excelsior college",
+          "alias_type": "former_name",
+          "valid_from": null,
+          "valid_to": "2022-07-31",
+          "from_precision": "unknown",
+          "to_precision": "day",
+          "source_key": "src-excelsior-designation",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-excelsior-designation",
+              "summary": "Excelsior College is the former name. V1 treats July 31, 2022 as the last day of that name because the new name took effect on August 1, 2022. The source did not publish a separate last-day field, and the start of the Excelsior College name was not captured.",
+              "verification_status": "source_confirmed",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "inst-umpi",
+      "official_name": "University of Maine at Presque Isle",
+      "normalized_name": "university of maine at presque isle",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.umpi.edu",
+      "notes": "Participates in the University of Maine System NECHE accreditation structure. That is stored as system participation, not as a standalone grant invented from the system relationship.",
+      "aliases": [
+        {
+          "key": "alias-umpi",
+          "alias": "UMPI",
+          "normalized_alias": "umpi",
+          "alias_type": "abbreviation",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-umpi-faqs",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-research-extract",
+              "summary": "The research uses UMPI as the abbreviation for the University of Maine at Presque Isle.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-umpi-neche",
+          "accreditor_key": "accr-neche",
+          "accreditation_status": "participating",
+          "accreditation_scope": "university_system_participation",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "notes": "UMPI participates in the University of Maine System's NECHE accreditation structure. V1 does not rewrite this as an independent institutional grant, and it does not store a regional label."
+        }
+      ]
+    },
+    {
+      "key": "inst-umass-global",
+      "official_name": "UMass Global",
+      "normalized_name": "umass global",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.umassglobal.edu",
+      "notes": "Emerged from Brandman University's transition to the University of Massachusetts affiliation in 2021. The exact day was not captured.",
+      "aliases": [
+        {
+          "key": "alias-umass-global",
+          "alias": "UMass Global",
+          "normalized_alias": "umass global",
+          "alias_type": "official_name",
+          "valid_from": "2021-01-01",
+          "valid_to": null,
+          "from_precision": "year",
+          "to_precision": "unknown",
+          "source_key": "src-umass-news",
+          "verification_status": "source_confirmed",
+          "confidence": "medium",
+          "evidence": [
+            {
+              "source_key": "src-umass-news",
+              "summary": "The Brandman University transition to the University of Massachusetts affiliation occurred in 2021. The stored January 1 is only a year-precision convention.",
+              "verification_status": "source_confirmed",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "key": "alias-brandman",
+          "alias": "Brandman University",
+          "normalized_alias": "brandman university",
+          "alias_type": "former_name",
+          "valid_from": null,
+          "valid_to": "2021-01-01",
+          "from_precision": "unknown",
+          "to_precision": "year",
+          "source_key": "src-umass-news",
+          "verification_status": "source_confirmed",
+          "confidence": "medium",
+          "evidence": [
+            {
+              "source_key": "src-umass-news",
+              "summary": "Brandman University is the former name. The end is known only as 2021, so any date in 2021 is ambiguous.",
+              "verification_status": "source_confirmed",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-umass-wscuc",
+          "accreditor_key": "accr-wscuc",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "The research states that UMass Global is accredited by WSCUC. The grant start date and the DAPIP record were not captured, so this is a current undated assertion."
+        }
+      ]
+    },
+    {
+      "key": "inst-purdue-global",
+      "official_name": "Purdue University Global",
+      "normalized_name": "purdue university global",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.purdueglobal.edu",
+      "notes": "Began operating as Purdue University Global in 2018 after Purdue's acquisition of Kaplan University. V1 keeps Kaplan as a former name of this identity and records a research gap on whether a separate historical institution row is required.",
+      "aliases": [
+        {
+          "key": "alias-purdue-global-official",
+          "alias": "Purdue University Global",
+          "normalized_alias": "purdue university global",
+          "alias_type": "official_name",
+          "valid_from": "2018-01-01",
+          "valid_to": null,
+          "from_precision": "year",
+          "to_precision": "unknown",
+          "source_key": "src-purdue-news",
+          "verification_status": "source_confirmed",
+          "confidence": "medium",
+          "evidence": [
+            {
+              "source_key": "src-purdue-news",
+              "summary": "Purdue University Global began operating in 2018. The day and month were not captured.",
+              "verification_status": "source_confirmed",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "key": "alias-purdue-global-short",
+          "alias": "Purdue Global",
+          "normalized_alias": "purdue global",
+          "alias_type": "trade_name",
+          "valid_from": "2018-01-01",
+          "valid_to": null,
+          "from_precision": "year",
+          "to_precision": "unknown",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-research-extract",
+              "summary": "The research uses Purdue Global as the short name.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "key": "alias-kaplan",
+          "alias": "Kaplan University",
+          "normalized_alias": "kaplan university",
+          "alias_type": "former_name",
+          "valid_from": null,
+          "valid_to": "2018-01-01",
+          "from_precision": "unknown",
+          "to_precision": "year",
+          "source_key": "src-purdue-news",
+          "verification_status": "source_confirmed",
+          "confidence": "medium",
+          "evidence": [
+            {
+              "source_key": "src-purdue-news",
+              "summary": "Kaplan University preceded Purdue Global. The transition is known at year precision for 2018.",
+              "verification_status": "source_confirmed",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-purdue-hlc",
+          "accreditor_key": "accr-hlc",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "The research states that Purdue Global's current institutional accreditor is HLC. The grant dates were not captured."
+        }
+      ]
+    },
+    {
+      "key": "inst-tesu",
+      "official_name": "Thomas Edison State University",
+      "normalized_name": "thomas edison state university",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.tesu.edu",
+      "aliases": [
+        {
+          "key": "alias-tesu",
+          "alias": "TESU",
+          "normalized_alias": "tesu",
+          "alias_type": "abbreviation",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-tesu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-research-extract",
+              "summary": "The research uses TESU as the abbreviation for Thomas Edison State University.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-tesu-msche",
+          "accreditor_key": "accr-msche",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-tesu-accreditation",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "TESU is MSCHE-accredited. The research did not capture the grant's start or end, so a historical as-of query must not treat this undated row as if it were known in an earlier year."
+        }
+      ]
+    },
+    {
+      "key": "inst-capella",
+      "official_name": "Capella University",
+      "normalized_name": "capella university",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.capella.edu",
+      "notes": "The research discusses Capella bachelor's programs in quarter credits. V1 does not store a 180-credit figure as a specific program total because no program was named.",
+      "accreditations": [
+        {
+          "key": "accrn-capella-hlc",
+          "accreditor_key": "accr-hlc",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "Capella is HLC-accredited. Grant dates were not captured."
+        }
+      ]
+    },
+    {
+      "key": "inst-phoenix",
+      "official_name": "University of Phoenix",
+      "normalized_name": "university of phoenix",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.phoenix.edu",
+      "accreditations": [
+        {
+          "key": "accrn-phoenix-hlc",
+          "accreditor_key": "accr-hlc",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "University of Phoenix is HLC-accredited. Grant dates were not captured."
+        }
+      ]
+    },
+    {
+      "key": "inst-charter-oak",
+      "official_name": "Charter Oak State College",
+      "normalized_name": "charter oak state college",
+      "institution_type": "college",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.charteroak.edu",
+      "aliases": [
+        {
+          "key": "alias-charter-oak",
+          "alias": "Charter Oak",
+          "normalized_alias": "charter oak",
+          "alias_type": "trade_name",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-charter-oak-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-research-extract",
+              "summary": "The research uses Charter Oak as the short name of Charter Oak State College.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-charter-neche",
+          "accreditor_key": "accr-neche",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "Charter Oak is NECHE-accredited. Grant dates were not captured."
+        }
+      ]
+    },
+    {
+      "key": "inst-snhu",
+      "official_name": "Southern New Hampshire University",
+      "normalized_name": "southern new hampshire university",
+      "institution_type": "university",
+      "country_code": "US",
+      "control": null,
+      "current_status": "active",
+      "website_url": "https://www.snhu.edu",
+      "aliases": [
+        {
+          "key": "alias-snhu",
+          "alias": "SNHU",
+          "normalized_alias": "snhu",
+          "alias_type": "abbreviation",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-snhu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-research-extract",
+              "summary": "The research uses SNHU as the abbreviation for Southern New Hampshire University.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "accreditations": [
+        {
+          "key": "accrn-snhu-neche",
+          "accreditor_key": "accr-neche",
+          "accreditation_status": "accredited",
+          "accreditation_scope": "institutional",
+          "source_key": "src-research-extract",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "notes": "SNHU is NECHE-accredited. Grant dates were not captured."
+        }
+      ]
+    },
+    {
+      "key": "inst-itt",
+      "official_name": "ITT Technical Institute",
+      "normalized_name": "itt technical institute",
+      "institution_type": "technical_institute",
+      "country_code": "US",
+      "control": null,
+      "current_status": "closed",
+      "website_url": null,
+      "notes": "Included because closure and historical accreditation context matter for transfer evaluation. V1 does not assert which accreditor covered a given campus or course.",
+      "aliases": [
+        {
+          "key": "alias-itt",
+          "alias": "ITT",
+          "normalized_alias": "itt",
+          "alias_type": "abbreviation",
+          "valid_from": null,
+          "valid_to": null,
+          "from_precision": "unknown",
+          "to_precision": "unknown",
+          "source_key": "src-ed-itt",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "evidence": [
+            {
+              "source_key": "src-ed-itt",
+              "summary": "The Department of Education closure notice refers to ITT Technical Institute.",
+              "verification_status": "source_confirmed",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "status_versions": [
+        {
+          "key": "status-itt-closed",
+          "status": "closed",
+          "valid_from": "2016-09-06",
+          "valid_to": null,
+          "from_precision": "day",
+          "to_precision": "unknown",
+          "source_key": "src-ed-itt",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "notes": "ITT announced the closure of more than 130 campuses on September 6, 2016 and subsequently filed Chapter 7. The Chapter 7 filing date was not captured. V1 does not invent an operating-status row before the announcement."
+        }
+      ]
+    }
+  ],
+  "learning_experiences": [
+    {
+      "key": "lex-sdcm-0160",
+      "provider_key": "prov-study",
+      "provider_course_identifier": "SDCM-0160",
+      "identifier_status": "published",
+      "canonical_title": "Philosophy 102: Ethics in America",
+      "normalized_title": "philosophy 102 ethics in america",
+      "version": {
+        "key": "lexv-sdcm-0160",
+        "official_title": "Philosophy 102: Ethics in America",
+        "description": null,
+        "subject": null,
+        "passing_threshold": null,
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-ace-guide",
+        "verification_status": "source_confirmed",
+        "confidence": "high",
+        "evidence": [
+          {
+            "source_key": "src-ace-guide",
+            "summary": "Study.com Philosophy 102: Ethics in America is identified in the ACE National Guide as SDCM-0160. Subject, description, and passing threshold were not retained, and the title word Philosophy was not stored as an ACE subject area.",
+            "verification_status": "source_confirmed",
+            "confidence": "high"
+          }
+        ]
+      },
+      "recommendation": {
+        "key": "rec-sdcm-0160",
+        "body_key": "body-ace",
+        "authority_identifier": "SDCM-0160",
+        "recommendation_version": null,
+        "recommended_credits": null,
+        "credit_unit": null,
+        "recommended_level": null,
+        "recommended_subject": null,
+        "recommendation_start": "2023-11-01",
+        "recommendation_end": "2027-03-31",
+        "start_precision": "day",
+        "end_precision": "day",
+        "source_key": "src-ace-guide",
+        "verification_status": "source_confirmed",
+        "confidence": "high",
+        "recommendation_notes": "The recommendation period is inclusive. Credits, level, and subject were not in the V1 extract. This recommendation does not establish destination acceptance.",
+        "evidence": [
+          {
+            "source_key": "src-ace-guide",
+            "summary": "As of October 3, 2026, ACE shows Study.com Philosophy 102: Ethics in America (SDCM-0160) with a November 1, 2023 through March 31, 2027 recommendation period.",
+            "excerpt": "Study.com Philosophy 102: Ethics in America (SDCM-0160) with a November 1, 2023–March 31, 2027 recommendation period.",
+            "verification_status": "source_confirmed",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "key": "lex-coopersmith-recruitment",
+      "provider_key": "prov-coopersmith",
+      "provider_course_identifier": null,
+      "identifier_status": "not_captured",
+      "canonical_title": "Recruitment and Selection",
+      "normalized_title": "recruitment and selection",
+      "version": {
+        "key": "lexv-coopersmith-recruitment",
+        "official_title": "Recruitment and Selection",
+        "description": null,
+        "subject": null,
+        "passing_threshold": null,
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-nccrs-coopersmith",
+        "verification_status": "source_confirmed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "source_key": "src-nccrs-coopersmith",
+            "summary": "The NCCRS Coopersmith record for Recruitment and Selection contains date and revalidation information and a duplication warning tied to another course. The course code, dates, level, hours, subjects, and the paired course were not captured, so V1 stores no credit recommendation for it.",
+            "verification_status": "source_confirmed",
+            "confidence": "medium"
+          }
+        ]
+      },
+      "recommendation": null
+    }
+  ],
+  "programs": [
+    {
+      "key": "prog-excelsior-health-sciences",
+      "institution_key": "inst-excelsior",
+      "official_program_family_name": "Health Sciences",
+      "normalized_name": "health sciences",
+      "program_category": "health_sciences",
+      "degree_type": "bachelor",
+      "cip_code": null,
+      "version": {
+        "key": "progv-excelsior-health-sciences",
+        "version_label": "Referenced in current transfer materials as of 2026-10-03",
+        "academic_catalog_year": null,
+        "official_program_name": "BS Health Sciences",
+        "total_credits": null,
+        "credit_unit": null,
+        "delivery_modality": null,
+        "status": "unknown",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-excelsior-health-sciences",
+        "verification_status": "source_confirmed",
+        "confidence": "medium",
+        "evidence": [
+          {
+            "source_key": "src-excelsior-health-sciences",
+            "summary": "A BS Health Sciences page states up to 113 transfer credits. Catalog year, total program credits, credit unit, modality, and requirement tree were not captured. The version is not marked active merely because the page was cited.",
+            "verification_status": "source_confirmed",
+            "confidence": "medium"
+          }
+        ]
+      }
+    }
+  ],
+  "policies": [
+    {
+      "key": "pol-excelsior-alternative",
+      "institution_key": "inst-excelsior",
+      "program_key": null,
+      "policy_kind": "alternative_credit",
+      "title": "Noncollegiate learning with ACE or NCCRS recommendations",
+      "version": {
+        "key": "polv-excelsior-alternative-current",
+        "version_label": "Current page as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-excelsior-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high",
+        "notes": "Undated current assertion. A historical as-of query does not apply it."
+      },
+      "facts": [
+        {
+          "key": "fact-excelsior-certain-ace",
+          "fact_kind": "acceptance_condition",
+          "source_category": "ace_or_nccrs_recommended_noncollegiate",
+          "acceptance_status": "conditional",
+          "acceptance_strength": "category_illustrative",
+          "establishes_course_acceptance": false,
+          "comparison": "conditional",
+          "statement": "Excelsior considers certain noncollegiate learning that carries ACE or NCCRS recommendations and ties eligibility to completion during the applicable recommendation period. The word certain means this is not acceptance of every recommended course.",
+          "source_key": "src-excelsior-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-excelsior-health-sciences",
+      "institution_key": "inst-excelsior",
+      "program_key": "prog-excelsior-health-sciences",
+      "policy_kind": "transfer_maximum",
+      "title": "BS Health Sciences transfer maximum",
+      "version": {
+        "key": "polv-excelsior-health-sciences-current",
+        "version_label": "Program page as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-excelsior-health-sciences",
+        "verification_status": "source_confirmed",
+        "confidence": "medium"
+      },
+      "facts": [
+        {
+          "key": "fact-excelsior-hs-113",
+          "fact_kind": "transfer_maximum",
+          "source_category": "general_transfer",
+          "scope_degree_type": "bachelor",
+          "comparison": "max",
+          "limit_value": 113,
+          "limit_unit": "credits_unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "An Excelsior University BS Health Sciences page states up to 113 transfer credits. The credit unit was not stated in the extract. This program maximum is not an institution-wide Excelsior maximum and does not identify which courses transfer.",
+          "source_key": "src-excelsior-health-sciences",
+          "verification_status": "source_confirmed",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "key": "pol-umpi-transfer",
+      "institution_key": "inst-umpi",
+      "policy_kind": "transfer_maximum",
+      "title": "Transfer cap and bachelor's residency",
+      "version": {
+        "key": "polv-umpi-transfer-current",
+        "version_label": "YourPace FAQ as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-umpi-faqs",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-umpi-no-limit",
+          "fact_kind": "no_transfer_limit",
+          "source_category": "general_transfer",
+          "comparison": "no_set_limit",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "UMPI states that there is no set limit to the number of credits that may be transferred. A residency rule still applies, so the absence of a cap is not the same as unlimited applicable credit.",
+          "source_key": "src-umpi-faqs",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        },
+        {
+          "key": "fact-umpi-residency-30",
+          "fact_kind": "residency_minimum",
+          "scope_degree_type": "bachelor",
+          "scope_requirement_area": "residency",
+          "comparison": "min",
+          "limit_value": 30,
+          "limit_unit": "credits_unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "A bachelor's student must complete at least 30 credits at UMPI. The credit unit was not named in the extract. Published residency rules also address credits in the major and upper-level work; those quantities were not captured.",
+          "source_key": "src-umpi-faqs",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-umass-cpl",
+      "institution_key": "inst-umass-global",
+      "policy_kind": "prior_learning",
+      "title": "Credit for prior learning framework",
+      "version": {
+        "key": "polv-umass-cpl-current",
+        "version_label": "CPL page as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-umass-cpl",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-umass-cpl-methods",
+          "fact_kind": "acceptance_condition",
+          "acceptance_status": "conditional",
+          "acceptance_strength": "category_illustrative",
+          "establishes_course_acceptance": false,
+          "method_labels": [
+            "qualifying_exams",
+            "military_experience",
+            "certifications_or_workforce",
+            "ace_recommended_learning",
+            "portfolio_assessment"
+          ],
+          "statement": "UMass Global's credit-for-prior-learning framework includes qualifying exams, military experience, certifications or workforce training, ACE-recommended learning, and portfolio assessment. Applicability depends on documentation, program, and policy. The published portfolio maximum was not captured as a number.",
+          "source_key": "src-umass-cpl",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-purdue-transfer",
+      "institution_key": "inst-purdue-global",
+      "policy_kind": "transfer_maximum",
+      "title": "Undergraduate external credit",
+      "version": {
+        "key": "polv-purdue-transfer-current",
+        "version_label": "Published materials as of 2026-10-03; numeric limit not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-purdue-military",
+        "verification_status": "source_confirmed",
+        "confidence": "medium"
+      },
+      "facts": [
+        {
+          "key": "fact-purdue-proportion",
+          "fact_kind": "transfer_maximum",
+          "source_category": "general_transfer",
+          "scope_career": "undergraduate",
+          "comparison": "unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "Purdue Global's published materials state that undergraduate students may, in relevant circumstances, bring in a large proportion of degree requirements from outside Purdue Global, with program-specific restrictions and specialized advanced-start provisions for some students and programs. No single percentage or credit maximum was captured.",
+          "source_key": "src-purdue-military",
+          "verification_status": "source_confirmed",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "key": "pol-tesu-noncollegiate",
+      "institution_key": "inst-tesu",
+      "policy_kind": "alternative_credit",
+      "title": "Noncollegiate credit and transcript routing",
+      "version": {
+        "key": "polv-tesu-limit-2021",
+        "version_label": "Effective January 1, 2021",
+        "valid_from": "2021-01-01",
+        "valid_to": null,
+        "from_precision": "day",
+        "to_precision": "unknown",
+        "source_key": "src-tesu-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high",
+        "notes": "The 90-credit maximum is dated. Transcript-routing steps are a separate undated fact on another version."
+      },
+      "facts": [
+        {
+          "key": "fact-tesu-90",
+          "fact_kind": "alternative_credit_limit",
+          "scope_degree_type": "bachelor",
+          "source_category": "ace_nccrs_exams_and_related",
+          "comparison": "max",
+          "limit_value": 90,
+          "limit_unit": "credits_unspecified",
+          "acceptance_status": "conditional",
+          "acceptance_strength": "category_illustrative",
+          "establishes_course_acceptance": false,
+          "statement": "Effective January 1, 2021, TESU states that bachelor's students may apply a maximum of 90 credits from specified noncollegiate sources such as ACE/NCCRS-evaluated providers, exams, and related sources. The credit unit was not named. The phrase such as means the extract does not contain the enumerated provider list, so this cap does not establish that a named course is accepted.",
+          "source_key": "src-tesu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-tesu-routing",
+      "institution_key": "inst-tesu",
+      "policy_kind": "transcript_routing",
+      "title": "ACE and NCCRS transcript routing",
+      "version": {
+        "key": "polv-tesu-routing-current",
+        "version_label": "Current FAQ as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-tesu-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "medium"
+      },
+      "facts": [
+        {
+          "key": "fact-tesu-routing",
+          "fact_kind": "transcript_routing",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "TESU publishes different transcript-routing procedures for ACE and NCCRS providers. The procedure steps were not captured.",
+          "source_key": "src-tesu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "key": "pol-capella-alternative",
+      "institution_key": "inst-capella",
+      "policy_kind": "alternative_credit",
+      "title": "ACE-evaluated learning and program transfer maxima",
+      "version": {
+        "key": "polv-capella-current",
+        "version_label": "Transfer page as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-capella-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-capella-ace",
+          "fact_kind": "acceptance_condition",
+          "source_category": "ace_recommended_noncollegiate",
+          "acceptance_status": "conditional",
+          "acceptance_strength": "category_illustrative",
+          "establishes_course_acceptance": false,
+          "statement": "Capella recognizes eligible ACE-evaluated learning, including named alternative-credit relationships, subject to program and transfer requirements. The named relationships were not enumerated, so this row does not accept a specific provider course.",
+          "source_key": "src-capella-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        },
+        {
+          "key": "fact-capella-maxima-vary",
+          "fact_kind": "program_restriction",
+          "source_category": "general_transfer",
+          "comparison": "unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "Capella publishes transfer maxima that vary by program. Many bachelor's programs are discussed in quarter credits. The extract does not contain one institutional maximum, and quarter credits are not converted to semester credits.",
+          "source_key": "src-capella-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-phoenix-transfer",
+      "institution_key": "inst-phoenix",
+      "policy_kind": "transfer_maximum",
+      "title": "Bachelor's typical transfer maximum",
+      "version": {
+        "key": "polv-phoenix-current",
+        "version_label": "Transfer page as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-phoenix-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-phoenix-87",
+          "fact_kind": "transfer_maximum",
+          "scope_degree_type": "bachelor",
+          "source_category": "general_transfer",
+          "comparison": "max",
+          "limit_value": 87,
+          "limit_unit": "credits_unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "University of Phoenix transfer material states that bachelor's programs typically accept up to 87 transfer credits, with some allowing 90. The programs that allow 90 were not identified. The credit unit was not named. Accreditation, course evaluation, and qualifying military learning are transfer considerations. This typical maximum does not establish acceptance of a named alternative-credit course.",
+          "source_key": "src-phoenix-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-charter-oak-transfer",
+      "institution_key": "inst-charter-oak",
+      "policy_kind": "alternative_credit",
+      "title": "Source classes, partners, and grade distinctions",
+      "version": {
+        "key": "polv-charter-oak-current",
+        "version_label": "Transfer page as of 2026-10-03; numeric limits not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-charter-oak-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-charter-partners",
+          "fact_kind": "source_distinction",
+          "source_category": "alternative_provider_partner",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "Charter Oak's noncollegiate-partner policy addresses Sophia Learning, Study.com, and StraighterLine. Addressing those providers does not establish acceptance, a credit limit, or a course equivalency.",
+          "source_key": "src-charter-oak-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high",
+          "provider_links": [
+            {"provider_key": "prov-sophia", "relationship": "addresses"},
+            {"provider_key": "prov-study", "relationship": "addresses"},
+            {"provider_key": "prov-straighterline", "relationship": "addresses"}
+          ]
+        },
+        {
+          "key": "fact-charter-source-maxima",
+          "fact_kind": "transfer_maximum",
+          "comparison": "unspecified",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "Charter Oak publishes different maxima for credits from two-year and four-year accredited institutions. The numeric maxima were not captured.",
+          "source_key": "src-charter-oak-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        },
+        {
+          "key": "fact-charter-grades",
+          "fact_kind": "minimum_grade",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "Charter Oak distinguishes general transfer grades from grades required in the major, concentration, or communication requirements. The thresholds were not captured.",
+          "source_key": "src-charter-oak-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "key": "pol-snhu-transfer",
+      "institution_key": "inst-snhu",
+      "policy_kind": "transfer_maximum",
+      "title": "Online bachelor's transfer guidance",
+      "version": {
+        "key": "polv-snhu-current",
+        "version_label": "Online bachelor's guidance as of 2026-10-03; effective start not captured",
+        "valid_from": null,
+        "valid_to": null,
+        "from_precision": "unknown",
+        "to_precision": "unknown",
+        "source_key": "src-snhu-transfer",
+        "verification_status": "source_confirmed",
+        "confidence": "high"
+      },
+      "facts": [
+        {
+          "key": "fact-snhu-90",
+          "fact_kind": "transfer_maximum",
+          "scope_degree_type": "bachelor",
+          "scope_modality": "online",
+          "source_category": "general_transfer",
+          "comparison": "max",
+          "limit_value": 90,
+          "limit_unit": "credits_unspecified",
+          "context_value": 120,
+          "context_label": "published_credit_total",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "SNHU's online bachelor's transfer guidance states that up to 90 of 120 credits may transfer, with a remaining institutional requirement. The credit unit was not explicitly named in the extract, so 90 and 120 are stored as unspecified credits and the remainder was not derived as a 30-credit residency rule. This guidance does not establish acceptance of a named alternative-credit course.",
+          "source_key": "src-snhu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "high"
+        },
+        {
+          "key": "fact-snhu-age",
+          "fact_kind": "course_age",
+          "scope_degree_type": "bachelor",
+          "scope_modality": "online",
+          "acceptance_strength": "none",
+          "establishes_course_acceptance": false,
+          "statement": "SNHU explains that older technical coursework can sometimes transfer but may apply differently. The age threshold and the resulting application categories were not captured. Course age here can change application rather than only transferability.",
+          "source_key": "src-snhu-transfer",
+          "verification_status": "source_confirmed",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "research_gaps": [
+    {
+      "key": "gap-identifiers",
+      "topic": "external_identifiers",
+      "unresolved_question": "What are the IPEDS UNITID, OPEID, and DAPIP identifiers for each seeded institution?",
+      "current_best_evidence": "The V1 extract did not include those identifiers. They were not backfilled from memory.",
+      "recommended_action": "Load IPEDS and DAPIP crosswalks with issuer, validity, and source snapshots.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-excelsior-accreditor",
+      "institution_key": "inst-excelsior",
+      "entity_type": "institution",
+      "topic": "accreditation",
+      "unresolved_question": "What accreditor does Excelsior University hold, and what is the dated history through the 2022 name change?",
+      "current_best_evidence": "The research says accreditation history predates the name change and does not name the current accreditor.",
+      "recommended_action": "Load the DAPIP time series.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-excelsior-regents-names",
+      "institution_key": "inst-excelsior",
+      "topic": "identity",
+      "unresolved_question": "Which Regents-related names did Excelsior use, and on which dates?",
+      "current_best_evidence": "The research says earlier operation was under Regents-related names and does not list them.",
+      "recommended_action": "Add aliases only from the university designation page or another primary source.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-accreditation-timeseries",
+      "topic": "accreditation",
+      "unresolved_question": "What are the dated accreditation grants for the nine destination institutions?",
+      "current_best_evidence": "Current accreditors are named for eight institutions. Start dates were not captured, so those rows are undated and are withheld from historical as-of queries. Excelsior's accreditor is not named.",
+      "recommended_action": "Ingest DAPIP snapshots and accreditor directories without collapsing history into current_status.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-acics-earlier",
+      "topic": "accreditor_recognition",
+      "unresolved_question": "What were the dated ACICS recognition, withdrawal, litigation, and reinstatement intervals before the August 19, 2022 termination?",
+      "current_best_evidence": "The research says the history is complex and records only the termination date.",
+      "recommended_action": "Load the Department of Education ACICS docket as separate recognition rows.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-itt-accreditor",
+      "institution_key": "inst-itt",
+      "topic": "accreditation",
+      "unresolved_question": "Which accreditor covered each ITT campus and program when a student completed a course?",
+      "current_best_evidence": "Closure on September 6, 2016 is documented. The research says ACICS recognition history is relevant context and does not assert an ITT accreditation grant.",
+      "recommended_action": "Do not infer ACICS accreditation. Load campus-level historical accreditation.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-itt-campuses",
+      "institution_key": "inst-itt",
+      "topic": "campuses",
+      "unresolved_question": "Which campuses closed, and on what effective academic date rather than the announcement date?",
+      "current_best_evidence": "More than 130 campuses were announced closed on September 6, 2016. The campus list and the Chapter 7 filing date were not captured.",
+      "recommended_action": "Model campuses only from the Department of Education closure list.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-equivalencies",
+      "topic": "equivalency",
+      "unresolved_question": "Which Sophia, Study.com, StraighterLine, and Coopersmith courses have destination equivalencies at the nine institutions?",
+      "current_best_evidence": "Acceptance policies and recommendation-body records do not prove direct equivalencies. V1 loads zero equivalency rows.",
+      "recommended_action": "Ingest each destination transfer database course by course and keep provider claims labeled provider_stated.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-sophia-courses",
+      "topic": "credit_recommendation",
+      "unresolved_question": "What are the ACE identifiers, versions, periods, levels, credits, and subjects for Sophia courses?",
+      "current_best_evidence": "The research confirms Sophia has distinct ACE records and does not list them in the extract.",
+      "recommended_action": "Ingest the ACE organization page at course-version granularity.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-straighterline-courses",
+      "topic": "credit_recommendation",
+      "unresolved_question": "What are the ACE course records for StraighterLine?",
+      "current_best_evidence": "ACE exposes individual StraighterLine records. None were copied into V1.",
+      "recommended_action": "Ingest ACE course records. Do not set a provider-level ACE boolean.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-study-future",
+      "topic": "credit_recommendation",
+      "unresolved_question": "Which Study.com ACE recommendations have periods that begin after October 3, 2026?",
+      "current_best_evidence": "The research says ACE search contains some future-dated Study.com periods and does not name them. SDCM-0160 itself runs through March 31, 2027.",
+      "recommended_action": "Ingest each recommendation period as its own row and do not treat catalog presence as current.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-sdcm-credits",
+      "topic": "credit_recommendation",
+      "unresolved_question": "How many credits, in which unit, at what level, and in what subject does ACE recommend for SDCM-0160?",
+      "current_best_evidence": "Only the identifier, title, and November 1, 2023 through March 31, 2027 period were captured.",
+      "recommended_action": "Re-read the ACE course record and fill null recommendation fields only from that page.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-coopersmith-recruitment",
+      "topic": "credit_recommendation",
+      "unresolved_question": "What are the NCCRS code, dates, level, hours, subjects, revalidation, and paired duplicate course for Coopersmith Recruitment and Selection?",
+      "current_best_evidence": "The record exists and warns against automatic duplicate credit. The details were not captured, so no recommendation row was created.",
+      "recommended_action": "Ingest the NCCRS course record, including the duplication warning as a note rather than as an equivalency.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-umpi-residency-detail",
+      "institution_key": "inst-umpi",
+      "topic": "residency",
+      "unresolved_question": "How many major credits and upper-level credits must a bachelor's student complete at UMPI?",
+      "current_best_evidence": "The research says published residency rules address credits in the major and upper-level work and does not give the numbers. The 30-credit institutional residency figure is stored separately.",
+      "recommended_action": "Read the current catalog residency rule and store each minimum as its own fact.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-umpi-equivalencies",
+      "institution_key": "inst-umpi",
+      "topic": "equivalency",
+      "unresolved_question": "Which external-provider courses does UMPI equate?",
+      "current_best_evidence": "General residency and transfer structure is documented. Course-level equivalencies are not.",
+      "recommended_action": "Use UMPI's transfer or registrar sources, not provider marketing.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-umass-portfolio-max",
+      "institution_key": "inst-umass-global",
+      "topic": "prior_learning",
+      "unresolved_question": "What is UMass Global's published maximum for portfolio-based credit, and in which unit?",
+      "current_best_evidence": "The research says a maximum is published and does not quote the number.",
+      "recommended_action": "Copy the number and unit from the CPL page. Do not estimate it.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-umass-day",
+      "institution_key": "inst-umass-global",
+      "topic": "identity",
+      "unresolved_question": "On which date in 2021 did Brandman University become UMass Global?",
+      "current_best_evidence": "The year 2021 is established. The alias coverage is ambiguous for every day in 2021.",
+      "recommended_action": "Replace year precision with a day only when a primary source states the day.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-purdue-number",
+      "institution_key": "inst-purdue-global",
+      "topic": "transfer_maximum",
+      "unresolved_question": "What percentage or credit maximum applies to each Purdue Global undergraduate program, and which programs have advanced-start rules?",
+      "current_best_evidence": "The research describes a large proportion, program-specific restrictions, and advanced start, without a number.",
+      "recommended_action": "Store one fact per program version. Do not invent a shared bachelor's percentage.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-kaplan-identity",
+      "institution_key": "inst-purdue-global",
+      "topic": "identity",
+      "unresolved_question": "Should Kaplan University remain a separate institution identity for historical UNITID continuity?",
+      "current_best_evidence": "V1 stores Kaplan University as a former name of Purdue Global because the extract describes a transition rather than two concurrent institutions.",
+      "recommended_action": "Split the identity only if IPEDS or another authority shows a distinct continuing UNITID.",
+      "confidence": "medium",
+      "status": "open"
+    },
+    {
+      "key": "gap-capella-maxima",
+      "institution_key": "inst-capella",
+      "topic": "transfer_maximum",
+      "unresolved_question": "What transfer maximum, in quarter credits, applies to each Capella bachelor's program?",
+      "current_best_evidence": "Maxima vary by program. A generic 180 quarter-credit program size was a modeling warning, not a seeded program.",
+      "recommended_action": "Load each program version's quarter-credit total and transfer cap. Do not convert to semester credits.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-capella-named-relationships",
+      "institution_key": "inst-capella",
+      "topic": "alternative_credit",
+      "unresolved_question": "Which named alternative-credit relationships does Capella publish for ACE-evaluated learning?",
+      "current_best_evidence": "The research says named relationships exist and does not list them.",
+      "recommended_action": "Ingest the named relationships as equivalencies or provider links only from Capella's page.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-phoenix-90",
+      "institution_key": "inst-phoenix",
+      "topic": "transfer_maximum",
+      "unresolved_question": "Which University of Phoenix bachelor's programs allow 90 transfer credits rather than the typical 87, and what is the credit unit?",
+      "current_best_evidence": "The typical maximum of 87 is stored. The exception programs and the unit are not.",
+      "recommended_action": "Add program-scoped facts that override the institutional typical maximum.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-charter-numbers",
+      "institution_key": "inst-charter-oak",
+      "topic": "transfer_maximum",
+      "unresolved_question": "What are Charter Oak's numeric maxima for two-year sources, four-year sources, and the noncollegiate partners, and what grades are required?",
+      "current_best_evidence": "The policy distinguishes those cases. The numbers and grade thresholds were not captured. Partner mentions are not acceptance.",
+      "recommended_action": "Store each maximum and grade rule as its own fact with the unit and requirement area.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-snhu-detail",
+      "institution_key": "inst-snhu",
+      "topic": "transfer_policy",
+      "unresolved_question": "What minimum grade, credit unit, course-age threshold, and alternative-credit rules does SNHU publish, and is the remaining institutional requirement a 30-credit residency rule?",
+      "current_best_evidence": "Up to 90 of 120 credits is stored with an unspecified unit. The remainder was not derived. Alternative-credit acceptance for ACE, Sophia, Study.com, or StraighterLine was not established.",
+      "recommended_action": "Read the online bachelor's transfer page and store only the stated grade, unit, age, and provider rules.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-tesu-routing-steps",
+      "institution_key": "inst-tesu",
+      "topic": "transcript_routing",
+      "unresolved_question": "What transcript-routing steps does TESU require for ACE providers and for NCCRS providers?",
+      "current_best_evidence": "Distinct procedures exist. The steps were not captured.",
+      "recommended_action": "Store the channels as facts without merging ACE and NCCRS into one path.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-tesu-provider-list",
+      "institution_key": "inst-tesu",
+      "topic": "alternative_credit",
+      "unresolved_question": "Which providers and exams are inside TESU's specified noncollegiate set for the 90-credit bachelor's cap?",
+      "current_best_evidence": "The January 1, 2021 rule names ACE/NCCRS-evaluated providers, exams, and related sources as examples. The enumerated list was not captured.",
+      "recommended_action": "Link providers only when TESU names them. Do not treat Study.com's ACE recommendation as TESU acceptance.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-excelsior-certain",
+      "institution_key": "inst-excelsior",
+      "topic": "alternative_credit",
+      "unresolved_question": "Which ACE or NCCRS experiences does Excelsior consider, and what grade and course-age limits apply?",
+      "current_best_evidence": "Excelsior considers certain recommended noncollegiate learning completed during the recommendation period. The included set and the numeric grade and age limits were not captured.",
+      "recommended_action": "Ingest the transfer-credit source page at the rule level. Do not expand certain to all ACE recommendations.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-health-sciences-catalog",
+      "institution_key": "inst-excelsior",
+      "topic": "program",
+      "unresolved_question": "What is the canonical URL, catalog year, total credits, credit unit, and requirement tree for Excelsior BS Health Sciences?",
+      "current_best_evidence": "A page states up to 113 transfer credits. The other fields were not captured, so requirement_status stays not_documented.",
+      "recommended_action": "Load the 2026-27 catalog version before calculating a practical transfer maximum.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-program-inventory",
+      "topic": "program",
+      "unresolved_question": "What is the current program inventory and catalog-year version for each of the nine destinations?",
+      "current_best_evidence": "Only Excelsior BS Health Sciences was specific enough to seed, and even that version is incomplete.",
+      "recommended_action": "Crawl each official 2026-27 catalog and create program versions without guessing totals.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-historical-policies",
+      "topic": "policy_history",
+      "unresolved_question": "What transfer rules were in force in earlier catalog years, including 2024-25 and earlier?",
+      "current_best_evidence": "Most seeded policies are undated current pages. TESU's 90-credit cap is the dated exception, effective January 1, 2021.",
+      "recommended_action": "Add policy versions from archived catalogs. Do not overwrite the current version.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-ashworth-penn-foster",
+      "topic": "source_institution",
+      "unresolved_question": "How does each destination treat Penn Foster and Ashworth coursework, and what is Ashworth's DEAC status beyond being listed in a renewal process?",
+      "current_best_evidence": "DEAC public notices included Ashworth College in renewal. That was not stored as an accreditation grant. Destination treatment was not established.",
+      "recommended_action": "Research each destination's rule by completion date, accreditor, and source type.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-deac-recognition",
+      "topic": "accreditor_recognition",
+      "unresolved_question": "What is DEAC's dated U.S. Department of Education recognition status?",
+      "current_best_evidence": "DEAC describes itself as an institutional accreditor. V1 does not assert an ED recognition interval.",
+      "recommended_action": "Load the Department of Education recognized-agency record before marking DEAC recognized.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-exams",
+      "topic": "exams",
+      "unresolved_question": "What are the CLEP, DSST, and other exam recommendations and institutional exam limits?",
+      "current_best_evidence": "TESU's 90-credit category mentions exams. No exam rows were seeded. The exam submodel is deferred.",
+      "recommended_action": "Add exams as learning experiences under exam-board providers, with recommendation periods, after the evidence pipeline is stable.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-practical-max",
+      "topic": "degree_applicability",
+      "unresolved_question": "What is the practical maximum transfer for each program after residency and required institutional coursework?",
+      "current_best_evidence": "Practical maximum transfer is a solver output. Requirement trees are empty, so the value is not calculated and is not stored as a registrar fact.",
+      "recommended_action": "Load requirement nodes, then cache a practical maximum with the engine version and calculation date.",
+      "confidence": "high",
+      "status": "open"
+    },
+    {
+      "key": "gap-regional-language",
+      "topic": "accreditation_terminology",
+      "unresolved_question": "Which historical destination policies still condition transfer on the word regional, and for which catalog years?",
+      "current_best_evidence": "The Department of Education has rejected regional as a current federal distinction. V1 stores no regional label because no seeded policy excerpt used that word.",
+      "recommended_action": "When a historical catalog uses the word, copy it into historical_classification_label or the policy statement. Do not translate it into a current quality rank.",
+      "confidence": "high",
+      "status": "open"
+    }
+  ]
+}
